@@ -9,28 +9,18 @@
 
 char *leet(char *str)
 {
-	int i = 0;
-	char *letters = "AEOTL";
-	char *leet_chars = "43071";
+	int i, j;
+	char s1[] = "aAeEoOtTlL";
+	char s2[] = "4433007711";
 
-	while (str[i] != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		int j = 0;
-		bool is_letter = false;
-
-		while (letters[j] != '\0')
+		for (j = 0; j < 10; j++)
 		{
-			if (str[i] == letters[j] || str[i] == letters[j] + 32)
+			if (str[i] == s1[j])
 			{
-				str[i] = leet_chars[j];
-				is_letter = true;
-				break;
+				str[i] = s2[j];
 			}
-			j++;
-		}
-		if (!is_letter)
-		{
-			i++;
 		}
 	}
 	return (str);
