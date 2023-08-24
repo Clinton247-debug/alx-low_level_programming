@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdbool.h>
+#include <stdio.h>
 
 /**
  * rot13 - Encodes a string using rot13
@@ -9,20 +9,21 @@
 
 char *rot13(char *str)
 {
-	int i = 0;
+	int i;
+	int j;
+	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	while (str[i] != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		bool is_alpha = (str[i] >= 'a' && str[i] <= 'z') ||
-			(str[i] >= 'A' && str[i] <= 'Z');
-
-		if (is_alpha)
+		for (j = 0; j < 52; j++)
 		{
-			char base = (str[i] >= 'a' && str[i] <= 'z') ? 'a' : 'A';
-
-			str[i] = (str[i] - base + 13) % 26 + base;
+			if (str[i] == data1[j])
+			{
+				str[i] = datarot[j];
+				break;
+			}
 		}
-		i++;
 	}
 	return (str);
 }
