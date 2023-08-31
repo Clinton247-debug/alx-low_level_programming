@@ -15,7 +15,7 @@ int _sqrt_recursion(int n)
 {
 	if (n < 0)
 	{
-		return (-10);
+		return (-1);
 	}
 	if (n == 0 || n == 1)
 	{
@@ -26,11 +26,11 @@ int _sqrt_recursion(int n)
 }
 
 /**
- * helper_sqrt - Helper function to find the squre root
- * @n: Yhe number for which the squre root is calculated
+ * helper_sqrt - Helper fuction to find the square root
+ * @n: The number for which the square root is calculated
  * @start: The starting value of the search range
  * @end: The ending value of the search range
- * Return: Square root of the number
+ * Return: The square root of the number within the specified range
  */
 
 int helper_sqrt(int n, int start, int end)
@@ -41,7 +41,6 @@ int helper_sqrt(int n, int start, int end)
 	{
 		return (-1);
 	}
-
 	mid = start + (end - start) / 2;
 
 	if (mid == n / mid && n % mid == 0)
