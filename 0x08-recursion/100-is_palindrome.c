@@ -2,28 +2,43 @@
 
 
 int check_palindrome(char *s, int start, int end);
-int _strlen(char *s);
+int _strlen_recursive(char *s, int length);
+
+/**
+ * _strlen - Calculate the length of a string
+ * @s: The input string
+ * Return: The length of the string
+ */
+
+int _strlen(char *s)
+{
+	return (_strlen_recursive(s, 0));
+}
+
+
+
+/**
+ * _strlen_recursive - Calculate the length of the string using recursion
+ * @s: The input string
+ * @length: The current length of the string
+ * Return: The length of the string
+ */
+
+int _strlen_recursive(char *s, int length)
+{
+	if (*s == '\0')
+	{
+		return (length);
+	}
+	return (_strlen_recursive(s + 1, length + 1));
+}
+
 
 /**
  * is_palindrome - Check if a string is a palindrome
  * @s: String to be checked
  * Return: 1 if a string is a palindrome and 0 if not
  */
-
-
-
-int _strlen(char*s)
-{
-	int length = 0;
-
-	while (*s != '\0')
-	{
-		length++;
-		s++;
-	}
-	return (length);
-}
-
 
 int is_palindrome(char *s)
 {
